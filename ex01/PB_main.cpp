@@ -4,9 +4,15 @@ int main() {
     PhoneBook phonebook;
     std::string cmd;
 
+    // falta corrigir o ctrl D no getline
+    //////////////////////////////////////////
+    
     while (true) {
         std::cout << "Please enter a command (ADD, SEARCH, EXIT):";
         std::cin >> cmd;
+
+        if(std::cin.eof())
+            break;
 
         if(cmd == "ADD") {
             phonebook.AddContact();

@@ -16,18 +16,23 @@ void PhoneBook::SearchContact() {
     std::cout << "     INDEX|FIRST NAME| LAST NAME|  NICKNAME" << std::endl;
     std::cout << "----------|----------|----------|----------" << std::endl;
 
+    int index = 0;
+
     for(int i = 0; i < MAX_CONCTACT; i++) {
         if(!contacts[i].GetFirstName().empty()) {
             contacts[i].DisplayContact(i);
+            index++;
         }
     }
     
-    int index;
+    if (index == 0)
+        return;
+
     std::cout << "Enter the index of the contact to display: ";
     
     while (!(std::cin >> index) || index < 0 || index >= old_i) {
         std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Discard invalid input
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << "Invalid index. Please enter a valid index: ";
     }
 

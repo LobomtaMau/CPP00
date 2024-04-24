@@ -5,6 +5,7 @@
 # include <iomanip>
 # include <limits>
 # include <string>
+# include <algorithm>
 # include <Contact.hpp>
 # include <PhoneBook.hpp>
 

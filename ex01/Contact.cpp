@@ -7,37 +7,47 @@ void Contact::SetContactInfo() {
     std::cout << "Enter First Name: ";
     std::cin.ignore();
     std::getline(std::cin, first_name);
+    std::replace(first_name.begin(), first_name.end(), '\t', ' ');
     while (first_name.empty()) {
         std::cout << "First Name empty. Please enter again: ";
         std::getline(std::cin, first_name);
+        std::replace(first_name.begin(), first_name.end(), '\t', ' ');
     }
 
     std::cout << "Enter Last Name: ";
     std::getline(std::cin, last_name);
+    std::replace(last_name.begin(), last_name.end(), '\t', ' ');
     while (last_name.empty()) {
         std::cout << "Last Name empty. Please enter again: ";
         std::getline(std::cin, last_name);
+        std::replace(last_name.begin(), last_name.end(), '\t', ' ');
     }
 
     std::cout << "Enter NickName: ";
     std::getline(std::cin, nick_name);
+    std::replace(nick_name.begin(), nick_name.end(), '\t', ' ');
     while (nick_name.empty()) {
         std::cout << "NickName empty. Please enter again: ";
         std::getline(std::cin, nick_name);
+        std::replace(nick_name.begin(), nick_name.end(), '\t', ' ');
     }
 
     std::cout << "Enter Phone number: ";
     std::getline(std::cin, phone_number);
+    std::replace(phone_number.begin(), phone_number.end(), '\t', ' ');
     while (phone_number.empty()) {
         std::cout << "Phone number empty. Please enter again: ";
         std::getline(std::cin, phone_number);
+        std::replace(phone_number.begin(), phone_number.end(), '\t', ' ');
     }
 
     std::cout << "Enter Your Darkest secrect: ";
     std::getline(std::cin, darkest_secret);
+    std::replace(darkest_secret.begin(), darkest_secret.end(), '\t', ' ');
     while (darkest_secret.empty()) {
         std::cout << "Darkest secrect empty. Please enter again: ";
         std::getline(std::cin, darkest_secret);
+        std::replace(darkest_secret.begin(), darkest_secret.end(), '\t', ' ');\
     }
     
 }
