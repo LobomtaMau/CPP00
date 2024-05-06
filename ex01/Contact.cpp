@@ -10,6 +10,8 @@ void Contact::SetContactInfo() {
     std::replace(first_name.begin(), first_name.end(), '\t', ' ');
     while (first_name.empty()) {
         std::cout << "First Name empty. Please enter again: ";
+        if(std::cin.eof())
+            exit(EXIT_FAILURE);
         std::getline(std::cin, first_name);
         std::replace(first_name.begin(), first_name.end(), '\t', ' ');
     }
@@ -18,6 +20,8 @@ void Contact::SetContactInfo() {
     std::getline(std::cin, last_name);
     std::replace(last_name.begin(), last_name.end(), '\t', ' ');
     while (last_name.empty()) {
+        if(std::cin.eof())
+            exit(EXIT_FAILURE);
         std::cout << "Last Name empty. Please enter again: ";
         std::getline(std::cin, last_name);
         std::replace(last_name.begin(), last_name.end(), '\t', ' ');
@@ -27,6 +31,8 @@ void Contact::SetContactInfo() {
     std::getline(std::cin, nick_name);
     std::replace(nick_name.begin(), nick_name.end(), '\t', ' ');
     while (nick_name.empty()) {
+        if(std::cin.eof())
+            exit(EXIT_FAILURE);
         std::cout << "NickName empty. Please enter again: ";
         std::getline(std::cin, nick_name);
         std::replace(nick_name.begin(), nick_name.end(), '\t', ' ');
@@ -36,6 +42,8 @@ void Contact::SetContactInfo() {
     std::getline(std::cin, phone_number);
     std::replace(phone_number.begin(), phone_number.end(), '\t', ' ');
     while (phone_number.empty()) {
+        if(std::cin.eof())
+            exit(EXIT_FAILURE);
         std::cout << "Phone number empty. Please enter again: ";
         std::getline(std::cin, phone_number);
         std::replace(phone_number.begin(), phone_number.end(), '\t', ' ');
@@ -45,11 +53,12 @@ void Contact::SetContactInfo() {
     std::getline(std::cin, darkest_secret);
     std::replace(darkest_secret.begin(), darkest_secret.end(), '\t', ' ');
     while (darkest_secret.empty()) {
+        if(std::cin.eof())
+            exit(EXIT_FAILURE);
         std::cout << "Darkest secrect empty. Please enter again: ";
         std::getline(std::cin, darkest_secret);
         std::replace(darkest_secret.begin(), darkest_secret.end(), '\t', ' ');\
     }
-    
 }
 
 

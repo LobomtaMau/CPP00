@@ -11,7 +11,6 @@ void PhoneBook::AddContact() {
     old_i++;
 }
 
-
 void PhoneBook::SearchContact() {
     std::cout << "     INDEX|FIRST NAME| LAST NAME|  NICKNAME" << std::endl;
     std::cout << "----------|----------|----------|----------" << std::endl;
@@ -24,16 +23,17 @@ void PhoneBook::SearchContact() {
             index++;
         }
     }
-    
     if (index == 0)
         return;
 
     std::cout << "Enter the index of the contact to display: ";
     
-    while (!(std::cin >> index) || index < 0 || index >= old_i) {
+    while (!(std::cin >> index) || index < 0 || index > old_i) {
         std::cin.clear();
         std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         std::cout << "Invalid index. Please enter a valid index: ";
+        if(std::cin.eof())
+            break;
     }
 
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
