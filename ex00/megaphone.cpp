@@ -10,7 +10,7 @@ int main(int argc, char **argv) {
         for (size_t j = 0; j < word.length(); j++) {
             word[j] = std::toupper(word[j]);
         }
-        std::cout << word << " ";
+        std::cout << word;
     }
     std::cout << std::endl;
     return 0;

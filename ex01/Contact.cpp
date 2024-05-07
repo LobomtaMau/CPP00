@@ -5,62 +5,40 @@ Contact::Contact()
 
 void Contact::SetContactInfo() {
     std::cout << "Enter First Name: ";
-    std::cin.ignore();
-    std::getline(std::cin, first_name);
-    std::replace(first_name.begin(), first_name.end(), '\t', ' ');
-    while (first_name.empty()) {
-        std::cout << "First Name empty. Please enter again: ";
-        if(std::cin.eof())
-            exit(EXIT_FAILURE);
-        std::getline(std::cin, first_name);
-        std::replace(first_name.begin(), first_name.end(), '\t', ' ');
-    }
+    getlineAndReplace(first_name);
 
     std::cout << "Enter Last Name: ";
-    std::getline(std::cin, last_name);
-    std::replace(last_name.begin(), last_name.end(), '\t', ' ');
-    while (last_name.empty()) {
-        if(std::cin.eof())
-            exit(EXIT_FAILURE);
-        std::cout << "Last Name empty. Please enter again: ";
-        std::getline(std::cin, last_name);
-        std::replace(last_name.begin(), last_name.end(), '\t', ' ');
-    }
+    getlineAndReplace(last_name);
 
     std::cout << "Enter NickName: ";
-    std::getline(std::cin, nick_name);
-    std::replace(nick_name.begin(), nick_name.end(), '\t', ' ');
-    while (nick_name.empty()) {
-        if(std::cin.eof())
-            exit(EXIT_FAILURE);
-        std::cout << "NickName empty. Please enter again: ";
-        std::getline(std::cin, nick_name);
-        std::replace(nick_name.begin(), nick_name.end(), '\t', ' ');
-    }
+    getlineAndReplace(nick_name);
 
     std::cout << "Enter Phone number: ";
-    std::getline(std::cin, phone_number);
-    std::replace(phone_number.begin(), phone_number.end(), '\t', ' ');
-    while (phone_number.empty()) {
-        if(std::cin.eof())
-            exit(EXIT_FAILURE);
-        std::cout << "Phone number empty. Please enter again: ";
-        std::getline(std::cin, phone_number);
-        std::replace(phone_number.begin(), phone_number.end(), '\t', ' ');
-    }
+    getlineAndReplace(phone_number);
 
-    std::cout << "Enter Your Darkest secrect: ";
-    std::getline(std::cin, darkest_secret);
-    std::replace(darkest_secret.begin(), darkest_secret.end(), '\t', ' ');
-    while (darkest_secret.empty()) {
+    std::cout << "Enter Your Darkest secret: ";
+    getlineAndReplace(darkest_secret);
+}
+
+void Contact::getlineAndReplace(std::string& str) {
+    std::getline(std::cin, str);
+    replaceTabsWithSpaces(str);
+    while (str.empty()) {
         if(std::cin.eof())
             exit(EXIT_FAILURE);
-        std::cout << "Darkest secrect empty. Please enter again: ";
-        std::getline(std::cin, darkest_secret);
-        std::replace(darkest_secret.begin(), darkest_secret.end(), '\t', ' ');\
+        std::cout << str << "Empty. Please enter again: ";
+        std::getline(std::cin, str);
+        replaceTabsWithSpaces(str);
     }
 }
 
+void Contact::replaceTabsWithSpaces(std::string& str) {
+    for (size_t i = 0; i < str.length(); ++i) {
+        if (str[i] == '\t') {
+            str[i] = ' ';
+        }
+    }
+}
 
 void Contact::DisplayContact(int i) {
     std::cout << std::right << std::setw(10) << i << "|";

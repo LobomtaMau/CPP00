@@ -1,28 +1,29 @@
 #include <PB_main.hpp>
 
+void validLine(std::string &input) {
+    std::getline(std::cin, input);
+    if(std::cin.eof()){
+        std::cout << "EOF.....\n";
+        exit(EXIT_FAILURE);
+    }
+}
+
 int main() {
     PhoneBook phonebook;
     std::string cmd;
     
     while (true) {
-        std::cout << "Please enter a command (ADD, SEARCH, EXIT):";
-        std::cin >> cmd;
+        std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
+        validLine(cmd);
 
-        if(std::cin.eof())
-            break;
-
-        if(cmd == "ADD") {
+        if(cmd == "ADD")
             phonebook.AddContact();
-        }
-        else if( cmd == "SEARCH") {
+        else if( cmd == "SEARCH")
             phonebook.SearchContact();
-        }
-        else if(cmd == "EXIT") {
+        else if(cmd == "EXIT")
             break;
-        }
-        else {
-            std::cout << "Invalid command. Please try again." << std::endl;
-        }
+        else
+            std::cout << "Invalid command. Try again." << std::endl;
     }
     return 0;
 }

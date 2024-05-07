@@ -17,12 +17,15 @@ public:
 
     void SetContactInfo();
     void DisplayContact(int i);
+    void getlineAndReplace(std::string& str);
+    void replaceTabsWithSpaces(std::string& str);
 
     std::string GetFirstName() const;
     std::string GetLastName() const;
     std::string GetNickName() const;
     std::string GetPhoneNumber() const;
     std::string GetDarkestSecret() const;
+
 };
 
 #endif
