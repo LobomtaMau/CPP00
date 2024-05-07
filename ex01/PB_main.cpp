@@ -3,9 +3,6 @@
 int main() {
     PhoneBook phonebook;
     std::string cmd;
-
-    // falta corrigir o ctrl D no getline
-    //////////////////////////////////////////
     
     while (true) {
         std::cout << "Please enter a command (ADD, SEARCH, EXIT):";
